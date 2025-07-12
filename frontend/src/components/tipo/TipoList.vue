@@ -4,7 +4,7 @@
   <ul class="lista">
     <li v-for="t in store.tipos" :key="t.id" class="item">
       {{ t.nombre }}
-      <button @click="store.destroy(t.id)" class="boton-eliminar">Eliminar</button>
+      <button v-if="loginStore.isLogged" @click="store.destroy(t.id)" class="boton-eliminar">Eliminar</button>
     </li>
   </ul>
   </div>
@@ -12,7 +12,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useTipoStore } from '@/stores/tipoStore';
-
+import { useLoginStore } from '@/stores/loginStore';
+const loginStore = useLoginStore();
 const store = useTipoStore();
 onMounted(() => store.fetch());
 </script>

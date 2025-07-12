@@ -4,10 +4,14 @@
       <img src="../public/cerveza-logo.png" alt="Cervecería" class="logo" />
       <h1>Gestor Cerveceria</h1>
       <nav>
+        <router-link to="/" class="nav-link">Inicio</router-link>
         <router-link to="/productos" class="nav-link">Productos</router-link>
         <router-link to="/tipos" class="nav-link">Tipos</router-link>
         <router-link to="/categorias" class="nav-link">Categorías</router-link>
         <router-link to="/proveedores" class="nav-link">Proveedores</router-link>
+        <button @click="toggleLogin" class="nav-login">
+          {{ loginStore.isLogged ? "Cerrar sesión" : "Ingresar" }}
+        </button>
       </nav>
     </header>
     <main>
@@ -17,7 +21,18 @@
 </template>
 
 <script setup lang="ts">
-import { RouterView, RouterLink } from 'vue-router';
+import { RouterLink, RouterView } from 'vue-router';
+import { useLoginStore } from '@/stores/loginStore';
+
+const loginStore = useLoginStore();
+
+const toggleLogin = () => {
+  if (loginStore.isLogged) {
+    loginStore.logout();
+  } else {
+    loginStore.login();
+  }
+};
 </script>
 
 <style scoped>
@@ -59,13 +74,22 @@ nav {
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  background-color: #006666; /* Teal */
+  background-color: #006666; 
   transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-link:hover {
   background-color: #004d4d;
   color: #fff;
+}
+.nav-login {
+  color: #f0e6d2;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #006666; 
+  transition: background-color 0.3s, color 0.3s;
 }
 
 main {

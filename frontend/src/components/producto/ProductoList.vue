@@ -9,7 +9,7 @@
           <strong>Tipo:</strong> {{ p.tipo_nombre }}<br />
           <strong>Categoría:</strong> {{ p.categoria_nombre }}<br />
           </div>
-        <button @click="store.destroy(p.id)" class="boton-eliminar">Eliminar</button>
+        <button v-if="loginStore.isLogged" @click="store.destroy(p.id)" class="boton-eliminar">Eliminar</button>
       </li>
     </ul>
   </div>
@@ -18,6 +18,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useProductoStore } from '@/stores/productoStore';
+import { useLoginStore } from '@/stores/loginStore';
+const loginStore = useLoginStore();
 
 const store = useProductoStore();
 onMounted(() => store.fetch());
@@ -70,5 +72,10 @@ h2 {
 
 .boton-eliminar:hover {
   background-color: darkred;
+}
+.aviso {
+  color: #b71c1c;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 </style>

@@ -9,7 +9,7 @@
           <strong>Dirección:</strong> {{ p.direccion || '-' }}<br />
           <strong>Email:</strong> {{ p.email || '-' }}
         </div>
-        <button @click="store.destroy(p.id)" class="boton-eliminar">Eliminar</button>
+        <button v-if="loginStore.isLogged" @click="store.destroy(p.id)" class="boton-eliminar">Eliminar</button>
       </li>
     </ul>
   </div>
@@ -18,6 +18,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { useProveedorStore } from '@/stores/proveedorStore';
+import { useLoginStore } from '@/stores/loginStore';
+const loginStore = useLoginStore();
 
 const store = useProveedorStore();
 onMounted(() => store.fetch());
@@ -70,5 +72,10 @@ h2 {
 
 .boton-eliminar:hover {
   background-color: darkred;
+}
+.aviso {
+  color: #b71c1c;
+  font-weight: bold;
+  margin-top: 1rem;
 }
 </style>
