@@ -10,7 +10,7 @@ from app.rutas.AuthRoutes import auth_bp
 
 def create_app():
     app = Flask(__name__)
-    CORS(app)
+    CORS(app, resources={r"/*": {"origins": "*"}}, methods=['GET', 'POST', 'PUT', 'DELETE'])
 
     app.register_blueprint(producto_bp)
     app.register_blueprint(tipo_bp)

@@ -13,9 +13,9 @@ export const useProductoStore = defineStore('producto', {
       await productoService.create(data);
       this.fetch();
     },
-    async update(id: number, data: any) {
-      await productoService.update(id, data);
-      this.fetch();
+    async update(data: any) {
+      await productoService.update(data.id, data);
+      await this.fetch();
     },
     async destroy(id: number) {
       await productoService.destroy(id);

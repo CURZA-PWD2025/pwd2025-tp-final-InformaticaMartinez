@@ -22,26 +22,25 @@ onMounted(() => store.fetch());
 <style scoped>
 .listado {
   max-width: 700px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #f5f5f5;
+  margin: 0.5rem;
+  background: #292929;
+  padding: 0.5rem;
   border-radius: 12px;
+  color: #f0e6d2;
 }
 h2 {
-  font-size: 2.5rem;
-  color: #070707;
-  margin-bottom: 1rem;
-}
-.lista {
-  list-style: none;
-  padding: 0;
+  font-size: 1.25rem;
+  color: #c8aa6e;
+  margin-bottom: 0.5rem;
 }
 .item {
-  background: #4b4a4a;
-  border: 1px solid #bbb;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  background: #3b3b3b;
+  padding: 0.5rem;
   border-radius: 8px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .boton-eliminar {
   background-color: crimson;
@@ -51,5 +50,10 @@ h2 {
   border-radius: 4px;
   float: right;
   cursor: pointer;
+}
+h2 {
+  font-size: 1.5rem;
+  color: #c8aa6e;
+  margin-bottom: 1rem;
 }
 </style>

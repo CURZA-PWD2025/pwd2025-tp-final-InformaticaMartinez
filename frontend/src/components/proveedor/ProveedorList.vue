@@ -28,50 +28,35 @@ onMounted(() => store.fetch());
 <style scoped>
 .listado {
   max-width: 700px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #f5f5f5;
+  margin: 0.5rem;
+  background: #292929;
+  padding: 0.5rem;
   border-radius: 12px;
-}
-
-.lista {
-  list-style: none;
-  padding: 0;
+  color: #f0e6d2;
 }
 h2 {
-  font-size: 2.5rem;
-  color: #070707;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #c8aa6e;
+  margin-bottom: 0.5rem;
 }
-
 .item {
-  background: #4b4a4a;
-  border: 1px solid #bbb;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  background: #3b3b3b;
+  padding: 0.5rem;
   border-radius: 8px;
-  position: relative;
-  color: #fff;
-}
-
-.info {
-  margin-right: 100px;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .boton-eliminar {
   background-color: crimson;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   border: none;
   border-radius: 4px;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+  float: right;
   cursor: pointer;
-}
-
-.boton-eliminar:hover {
-  background-color: darkred;
 }
 .aviso {
   color: #b71c1c;

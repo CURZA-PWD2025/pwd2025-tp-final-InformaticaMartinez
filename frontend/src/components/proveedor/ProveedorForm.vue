@@ -37,15 +37,15 @@ const submit = async () => {
 <style scoped>
 .formulario {
   max-width: 600px;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 1.5rem;
-  background-color: #ffffff;
+  background-color:#3b3b3b;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 h2 {
   font-size: 2.5rem;
-  color: #070707;
+  color: #c8aa6e;
   margin-bottom: 1rem;
 }
 .input {

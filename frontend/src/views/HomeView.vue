@@ -13,8 +13,7 @@
     <p>
       Navega por las secciones usando el menú superior para comenzar a gestionar tu cervecería.
     </p>
-    <img src="../public/pinta.png" alt="Pinta" class="home-image" />
-  </div>
+    </div>
 </template>
 
 <script setup lang="ts"></script>
@@ -22,9 +21,9 @@
 <style scoped>
 .home {
   max-width: 800px;
-  margin: 2rem auto;
+  margin: 0.5rem 0.5rem;
   background: #292929;
-  padding: 2rem;
+  padding: 0.5rem;
   border-radius: 12px;
   color: #f0e6d2;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -55,10 +54,5 @@ ul li {
   border-radius: 8px;
 }
 
-.home-image {
-  display: block;
-  margin: 2rem auto 0;
-  max-width: 100%;
-  border-radius: 12px;
-}
+
 </style>
