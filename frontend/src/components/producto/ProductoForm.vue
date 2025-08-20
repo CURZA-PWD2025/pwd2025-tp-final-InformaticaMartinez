@@ -13,41 +13,35 @@
       <option disabled value="">Seleccione Categoría</option>
       <option v-for="c in categorias" :key="c.id" :value="c.id">{{ c.nombre }}</option>
     </select>
-     <button type="submit" class="boton">Agregar Producto</button>
+    <button type="submit" class="boton">Agregar Producto</button>
   </form>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useProductoStore } from '@/stores/productoStore';
-import { useTipoStore } from '@/stores/tipoStore';
-import { useCategoriaStore } from '@/stores/categoriaStore';
+import { ref, onMounted } from 'vue'
+import { useProductoStore } from '@/stores/productoStore'
+import { useTipoStore } from '@/stores/tipoStore'
+import { useCategoriaStore } from '@/stores/categoriaStore'
 
+const store = useProductoStore()
+const tipoStore = useTipoStore()
+const categoriaStore = useCategoriaStore()
 
-const store = useProductoStore();
-const tipoStore = useTipoStore();
-const categoriaStore = useCategoriaStore();
+const nombre = ref('')
+const precio = ref('')
+const tipo_id = ref('')
+const categoria_id = ref('')
 
-
-const nombre = ref('');
-const precio = ref('');
-const tipo_id = ref('');
-const categoria_id = ref('');
-
-
-const tipos = ref([]);
-const categorias = ref([]);
-
+const tipos = ref([])
+const categorias = ref([])
 
 onMounted(async () => {
-  await tipoStore.fetch();
-  await categoriaStore.fetch();
- 
+  await tipoStore.fetch()
+  await categoriaStore.fetch()
 
-  tipos.value = tipoStore.tipos;
-  categorias.value = categoriaStore.categorias;
-  
-});
+  tipos.value = tipoStore.tipos
+  categorias.value = categoriaStore.categorias
+})
 
 const onSubmit = async () => {
   await store.create({
@@ -55,15 +49,13 @@ const onSubmit = async () => {
     precio: precio.value,
     tipo_id: tipo_id.value,
     categoria_id: categoria_id.value,
-    
-  });
+  })
 
-  nombre.value = '';
-  precio.value = '';
-  tipo_id.value = '';
-  categoria_id.value = '';
-  
-};
+  nombre.value = ''
+  precio.value = ''
+  tipo_id.value = ''
+  categoria_id.value = ''
+}
 </script>
 
 <style scoped>
@@ -71,7 +63,7 @@ const onSubmit = async () => {
   max-width: 600px;
   margin: 1rem auto;
   padding: 1.5rem;
-  background-color:#3b3b3b;
+  background-color: #3b3b3b;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
