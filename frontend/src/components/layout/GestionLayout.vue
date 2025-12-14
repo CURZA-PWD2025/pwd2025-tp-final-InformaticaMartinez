@@ -22,6 +22,7 @@
 </template>
 
 <script setup lang="ts">
+
 defineProps<{
   titulo: string
   entidad: string
@@ -30,6 +31,7 @@ defineProps<{
 </script>
 
 <style scoped>
+  
 .gestion-wrapper {
   min-height: calc(100vh - 160px); 
   display: flex;

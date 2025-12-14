@@ -20,6 +20,7 @@ onMounted(() => store.fetch());
 </script>
 
 <style scoped>
+  
 .listado {
   max-height: 400px;
   overflow-y: auto;

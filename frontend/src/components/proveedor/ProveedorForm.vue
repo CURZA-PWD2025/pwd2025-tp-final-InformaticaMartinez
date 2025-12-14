@@ -10,36 +10,37 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useProveedorStore } from '@/stores/proveedorStore';
+import { ref } from 'vue'
+import { useProveedorStore } from '@/stores/proveedorStore'
 
-const store = useProveedorStore();
-const nombre = ref('');
-const telefono = ref('');
-const direccion = ref('');
-const email = ref('');
+const store = useProveedorStore()
+const nombre = ref('')
+const telefono = ref('')
+const direccion = ref('')
+const email = ref('')
 
 const submit = async () => {
-  if (!nombre.value) return;
+  if (!nombre.value) return
   await store.create({
     nombre: nombre.value,
     telefono: telefono.value,
     direccion: direccion.value,
-    email: email.value
-  });
-  nombre.value = '';
-  telefono.value = '';
-  direccion.value = '';
-  email.value = '';
-};
+    email: email.value,
+  })
+  nombre.value = ''
+  telefono.value = ''
+  direccion.value = ''
+  email.value = ''
+}
 </script>
 
 <style scoped>
+  
 .formulario {
   max-width: 600px;
   margin: 1rem auto;
   padding: 1.5rem;
-  background-color:#3b3b3b;
+  background-color: #3b3b3b;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }

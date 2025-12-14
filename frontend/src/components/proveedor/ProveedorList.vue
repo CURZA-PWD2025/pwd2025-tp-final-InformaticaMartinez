@@ -79,7 +79,7 @@ const cancelarEdicion = () => {
 </script>
 
 <style scoped>
-
+  
 .listado {
   max-height: 400px;
   overflow-y: auto;
@@ -91,7 +91,6 @@ const cancelarEdicion = () => {
   color: #f0e6d2;
 }
 h2 {
-  
   font-size: 1.25rem;
   color: #c8aa6e;
   margin-bottom: 0.5rem;

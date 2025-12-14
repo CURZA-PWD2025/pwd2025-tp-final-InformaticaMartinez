@@ -48,3 +48,59 @@ button {
   background: #f9a825;
   color: #000;
 }
+.home-dashboard {
+  max-width: 1100px;
+  margin: 3rem auto;
+  text-align: center;
+  color: #f0e6d2;
+}
+
+.titulo {
+  font-size: 2.4rem;
+  color: #c8aa6e;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  opacity: 0.85;
+  margin-bottom: 3rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #2f2f2f;
+  border-radius: 14px;
+  padding: 2rem;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.card h2 {
+  color: #c8aa6e;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #c8aa6e;
+  background: #353535;
+}
+
+.aviso {
+  margin-top: 3rem;
+  color: #ffb74d;
+  font-size: 0.95rem;
+}

@@ -72,6 +72,7 @@ const onSubmit = async () => {
 </script>
 
 <style scoped>
+  
 .formulario {
   max-width: 600px;
   margin: 1rem auto;
