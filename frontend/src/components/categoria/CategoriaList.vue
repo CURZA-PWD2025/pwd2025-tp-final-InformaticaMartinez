@@ -1,7 +1,7 @@
 <template>
   <div class="listado">
     <h2>Listado de Categorias</h2>
-  <ul class="lista">
+  <ul>
     <li v-for="c in store.categorias" :key="c.id" class="item">
       {{ c.nombre }}
       <button v-if="loginStore.isLogged" @click="store.destroy(c.id)" class="boton-eliminar">Eliminar</button>
@@ -21,8 +21,10 @@ onMounted(() => store.fetch());
 
 <style scoped>
 .listado {
+  max-height: 400px;
+  overflow-y: auto;
   max-width: 700px;
-  margin: 0.5rem;
+  margin: 0.5rem auto;
   background: #292929;
   padding: 0.5rem;
   border-radius: 12px;
@@ -42,18 +44,43 @@ h2 {
   justify-content: space-between;
   align-items: center;
 }
-.boton-eliminar {
-  background-color: crimson;
-  color: white;
-  padding: 0.5rem;
+.modo-edicion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.boton-actualizar {
+  background-color: #ffa500;
+  color: #000;
   border: none;
-  border-radius: 4px;
-  float: right;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
   cursor: pointer;
 }
-h2 {
-  font-size: 1.5rem;
-  color: #c8aa6e;
-  margin-bottom: 1rem;
+.boton-eliminar {
+  background-color: crimson;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.boton-guardar {
+  background-color: teal;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+.boton-cancelar {
+  background-color: gray;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
 }
 </style>

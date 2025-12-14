@@ -1,27 +1,24 @@
 <template>
-  <div>
-    <h1>Gestión de Productos</h1>
-    <ProductoForm v-if="loginStore.isLogged" />
-    <p v-else class="aviso">⚠️ Debes ingresar para agregar o editar Productos</p>
-    <ProductoList />
-  </div>
+  <GestionLayout
+    titulo="Gestión de Productos"
+    entidad="productos"
+    :mostrarForm="loginStore.isLogged"
+  >
+    <template #form>
+      <ProductoForm />
+    </template>
+
+    <template #list>
+      <ProductoList />
+    </template>
+  </GestionLayout>
 </template>
 
 <script setup lang="ts">
-import ProductoList from '@/components/producto/ProductoList.vue';
-import ProductoForm from '@/components/producto/ProductoForm.vue';
-import { useLoginStore } from '@/stores/loginStore';
+import GestionLayout from '@/components/layout/GestionLayout.vue'
+import ProductoForm from '@/components/producto/ProductoForm.vue'
+import ProductoList from '@/components/producto/ProductoList.vue'
+import { useLoginStore } from '@/stores/loginStore'
 
-const loginStore = useLoginStore();
+const loginStore = useLoginStore()
 </script>
-
-<style scoped>
-h1 {
-  font-size: 2rem;
-  color: #c8aa6e;  
-}
-.aviso {
-  color: #b71c1c;
-  
-}
-</style>

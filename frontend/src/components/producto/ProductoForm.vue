@@ -13,6 +13,10 @@
       <option disabled value="">Seleccione Categoría</option>
       <option v-for="c in categorias" :key="c.id" :value="c.id">{{ c.nombre }}</option>
     </select>
+    <select v-model.number="proveedor_id" class="input">
+      <option disabled value="">Seleccione Proveedor</option>
+      <option v-for="p in proveedores" :key="p.id" :value="p.id">{{ p.nombre }}</option>
+    </select>
     <button type="submit" class="boton">Agregar Producto</button>
   </form>
 </template>
@@ -22,18 +26,23 @@ import { ref, onMounted } from 'vue'
 import { useProductoStore } from '@/stores/productoStore'
 import { useTipoStore } from '@/stores/tipoStore'
 import { useCategoriaStore } from '@/stores/categoriaStore'
+import { useProveedorStore } from '@/stores/proveedorStore' 
 
 const store = useProductoStore()
 const tipoStore = useTipoStore()
 const categoriaStore = useCategoriaStore()
+const proveedorStore = useProveedorStore()
+
 
 const nombre = ref('')
 const precio = ref('')
 const tipo_id = ref('')
 const categoria_id = ref('')
+const proveedor_id = ref('')
 
 const tipos = ref([])
 const categorias = ref([])
+const proveedores = ref([]);
 
 onMounted(async () => {
   await tipoStore.fetch()
@@ -41,6 +50,7 @@ onMounted(async () => {
 
   tipos.value = tipoStore.tipos
   categorias.value = categoriaStore.categorias
+  proveedores.value = proveedorStore.proveedores
 })
 
 const onSubmit = async () => {
@@ -49,12 +59,15 @@ const onSubmit = async () => {
     precio: precio.value,
     tipo_id: tipo_id.value,
     categoria_id: categoria_id.value,
+    proveedor_id: proveedor_id.value,
   })
 
   nombre.value = ''
   precio.value = ''
   tipo_id.value = ''
   categoria_id.value = ''
+  proveedor_id.value = ''
+
 }
 </script>
 

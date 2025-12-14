@@ -20,14 +20,11 @@
 
 <style scoped>
 .home {
-  max-width: 800px;
-  margin: 0.5rem 0.5rem;
-  background: #292929;
-  padding: 0.5rem;
-  border-radius: 12px;
-  color: #f0e6d2;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
 }
+
 
 h2 {
   font-size: 2rem;

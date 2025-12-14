@@ -21,6 +21,7 @@ export const useProductoStore = defineStore('producto', {
       precio: number;
       tipo_id: number;
       categoria_id: number;
+      proveedor_id: number;
     }) {
       try {
         await axios.post('http://127.0.0.1:5000/productos', producto);
@@ -36,6 +37,7 @@ export const useProductoStore = defineStore('producto', {
       precio: number;
       tipo_id: number;
       categoria_id: number;
+      proveedor_id: number;
     }) {
       try {
         await axios.put(`http://127.0.0.1:5000/productos/${producto.id}`, producto);

@@ -1,0 +1,45 @@
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+ .layout-title {
+  margin-bottom: 1rem;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.layout-form {
+  background: var(--bg-soft);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+
+.layout-list {
+  background: var(--bg-soft);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.layout-aviso {
+  color: var(--danger);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .layout-list {
+    max-height: none;
+  }
+}

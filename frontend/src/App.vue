@@ -50,6 +50,10 @@ const toggleLogin = () => {
 }
 
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   height: 150px;
   text-align: center;
   padding: 1rem;
@@ -83,7 +87,7 @@ nav {
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  background-color: #006666; 
+  background-color:teal; 
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -93,6 +97,7 @@ nav {
 }
 
 main {
+  margin-top: 120px;
   padding: 1rem;
   width: 100%;
   max-width: 1200px;

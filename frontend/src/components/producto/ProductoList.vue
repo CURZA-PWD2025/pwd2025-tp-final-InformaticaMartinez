@@ -14,6 +14,12 @@
             <option disabled value="">Seleccione Categoría</option>
             <option v-for="c in categorias" :key="c.id" :value="c.id">{{ c.nombre }}</option>
           </select>
+          <select v-model.number="p.proveedor_id">
+            <option disabled value="">Seleccione Proveedor</option>
+            <option v-for="prov in proveedores" :key="prov.id" :value="prov.id">
+              {{ prov.nombre }}
+            </option>
+          </select>
           <button @click="guardarEdicion(p)" class="boton-guardar">Guardar</button>
           <button @click="cancelarEdicion" class="boton-cancelar">Cancelar</button>
         </div>
@@ -52,22 +58,27 @@ import { useProductoStore } from '@/stores/productoStore'
 import { useTipoStore } from '@/stores/tipoStore'
 import { useCategoriaStore } from '@/stores/categoriaStore'
 import { useLoginStore } from '@/stores/loginStore'
+import { useProveedorStore } from '@/stores/proveedorStore'
 
 const loginStore = useLoginStore()
 const store = useProductoStore()
 const tipoStore = useTipoStore()
 const categoriaStore = useCategoriaStore()
+const proveedorStore = useProveedorStore()
 
 const editandoId = ref<number | null>(null)
 const tipos = ref([])
 const categorias = ref([])
+const proveedores = ref([])
 
 onMounted(async () => {
   await store.fetch()
   await tipoStore.fetch()
   await categoriaStore.fetch()
+  await proveedorStore.fetch()
   tipos.value = tipoStore.tipos
   categorias.value = categoriaStore.categorias
+  proveedores.value = proveedorStore.proveedores
 })
 
 const editar = (id: number) => {
@@ -96,7 +107,10 @@ const cancelarEdicion = () => {
 </script>
 
 <style scoped>
+  
 .listado {
+  max-height: 400px;
+  overflow-y: auto;
   max-width: 700px;
   margin: 0.5rem auto;
   background: #292929;

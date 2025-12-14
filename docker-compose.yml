@@ -1,0 +1,51 @@
+services:
+
+  db:
+    image: mysql:8
+    container_name: cerveceria-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cerveceria
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-proot"]
+      interval: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    container_name: cerveceria-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    environment:
+      FLASK_ENV: development
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: cerveceria
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    image: node:20
+    container_name: cerveceria-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_URL: http://localhost:5000
+    command:
+      - sh
+      - -c
+      - npm install && npm run dev -- --host
+    depends_on:
+      - backend
