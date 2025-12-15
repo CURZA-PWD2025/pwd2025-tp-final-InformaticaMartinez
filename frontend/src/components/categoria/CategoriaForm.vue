@@ -7,26 +7,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useCategoriaStore } from '@/stores/categoriaStore';
+import { ref } from 'vue'
+import { useCategoriaStore } from '@/stores/categoriaStore'
 
-const store = useCategoriaStore();
-const nombre = ref('');
+const store = useCategoriaStore()
+const nombre = ref('')
 
 const submit = async () => {
   if (nombre.value.trim()) {
-    await store.create({ nombre: nombre.value });
-    nombre.value = '';
+    await store.create({ nombre: nombre.value })
+    nombre.value = ''
   }
-};
+}
 </script>
 <style scoped>
-  
 .formulario {
   max-width: 600px;
   margin: 1rem auto;
   padding: 1.5rem;
-  background-color:#3b3b3b;
+  background-color: #3b3b3b;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -54,4 +53,3 @@ h2 {
   background-color: #006666;
 }
 </style>
-

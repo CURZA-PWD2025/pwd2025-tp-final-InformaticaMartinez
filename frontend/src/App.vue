@@ -62,7 +62,7 @@ header {
 }
 
 .logo {
-  width: 50px;
+  width: 100px;
   display: flex;
   justify-content: flex-end
 }
